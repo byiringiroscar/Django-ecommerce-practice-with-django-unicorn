@@ -1,0 +1,44 @@
+<div>
+    <!-- put component code here -->
+    <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="popular-products-slides owl-carousel">
+                        {% for product in products %}
+                        <!-- Single Product -->
+                        <div class="single-product-wrapper">
+                            <!-- Product Image -->
+                            <div class="product-img">
+                                <img src="{{ product.imageURL }}" alt="" style="height: 250px;">
+                                <!-- Hover Thumb -->
+                                <img class="hover-img" src="{{ product.imageURL }}" alt="">
+                                <!-- Favourite -->
+                                <div class="product-favourite">
+                                    <a href="#" class="favme fa fa-heart"></a>
+                                </div>
+                            </div>
+                            <!-- Product Description -->
+                            <div class="product-description">
+                                <span>{{ product.product_type }}</span>
+                                <a href="#">
+                                    <h6>{{ product.name }}</h6>
+                                </a>
+                                <p class="product-price">${{ product.price }}</p>
+
+                                <!-- Hover Content -->
+                                <div class="hover-content">
+                                    <!-- Add to Cart -->
+                                    <div class="add-to-cart-btn">
+                                        <button class="btn essence-btn" unicorn:click="add_item({{ product.pk }})">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
